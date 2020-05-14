@@ -47,7 +47,7 @@ const menuMaker = (dataArray) => {
      dataArray.forEach( textContent => {
     let listElement = document.createElement('li');
     listElement.textContent = textContent;
-     ulElement.append(listElement) //think of 'someElementToAppendTo.append' like console.log, except its like console.log for the DOM
+    ulElement.append(listElement) //think of 'someElementToAppendTo.append' like console.log, except its like console.log for the DOM
   }); 
 
      //Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
@@ -62,5 +62,8 @@ const menuMaker = (dataArray) => {
 
 // Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 let container = document.querySelector('body');
-let newMenu = menuMaker(menuItems);
-container.append(newMenu);
+// let newMenu = menuMaker(menuItems);
+container.append(menuMaker(menuItems)); //remember append can be thought of as similar to console.log but for the DOM
+
+
+
