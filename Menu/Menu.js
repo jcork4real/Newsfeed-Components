@@ -31,3 +31,39 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
+
+// 1.
+
+const menuMaker = (dataArray) => {
+    // Create Elements or select them to be appended
+    let divElement = document.createElement('div')
+    let ulElement = document.createElement('ul');
+    // let bodyElement = document.querySelector('body')
+
+    // Add Classes to Elements
+    divElement.classList.add('menu');
+    divElement.append(ulElement) // append ulElement to body before iterating through li loop
+    //Step 2 iterate and create <li> element for each item in the array
+     dataArray.forEach( textContent => {
+    let listElement = document.createElement('li');
+    listElement.textContent = textContent;
+    ulElement.append(listElement) //think of 'someElementToAppendTo.append' like console.log, except its like console.log for the DOM
+  }); 
+
+     //Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
+    let menuButton = document.querySelector('.menu-button');
+
+     //Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
+     menuButton.addEventListener('click', () => {
+     divElement.classList.toggle('menu--open');
+  })
+    return divElement
+}   // end menuMaker
+
+// Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
+let container = document.querySelector('body');
+// let newMenu = menuMaker(menuItems);
+container.append(menuMaker(menuItems)); //remember append can be thought of as similar to console.log but for the DOM
+
+
+
